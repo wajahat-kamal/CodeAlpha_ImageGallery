@@ -1,33 +1,53 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-  }
-  
-  .gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100dvh;
-    padding: 40px;
-  }
-  
-  .gallery img {
-    width: 60dvw;
-    height: 70dvh;
-    object-fit: cover;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+.container {
+  padding: 40px;
+  height: 100dvh;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery img {
+  width: 60dvw;
+  height: 70dvh;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.left-icon,
+.right-icon {
+  position: fixed;
+  top: 45%;
+  width: 70px;
+  height: 70px;
+}
+.left-icon {
+  left: 10%;
+}
+.right-icon {
+  right: 10%;
+}
