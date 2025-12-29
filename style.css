@@ -20,25 +20,33 @@ body {
   position: relative;
 }
 
+/* Gallery Wrapper */
 .gallery {
   display: flex;
   gap: 20px;
-  width: 70%;
+  width: 55%;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
-  scrollbar-width: none;
+  border-radius: 12px;
+  padding: 10px;
 }
 
+/* Hide scrollbar (optional) */
 .gallery::-webkit-scrollbar {
   display: none;
 }
 
+/* Images */
 .gallery img {
   flex-shrink: 0;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   height: 70vh;
   object-fit: cover;
   border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery img:hover {
