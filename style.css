@@ -11,8 +11,8 @@ body {
 .container {
   padding: 40px;
   height: 100dvh;
+  width: 100dvw;
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,13 +22,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60dvw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-radius: 12px;
 }
 
 .gallery img {
-  width: 60dvw;
   height: 70dvh;
+  width: 60dvw;
   object-fit: cover;
-  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
