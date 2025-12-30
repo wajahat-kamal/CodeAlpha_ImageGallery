@@ -34,3 +34,11 @@ function showLightBox(n) {
   let imageLocation = galleryItem[index - 1].children[0].getAttribute("src");
   lightBoxImg.setAttribute("src", imageLocation);
 }
+
+
+function currentImage() {
+    lightBoxContainer.style.display = 'block'
+
+    let imageIndex = parseInt(this.getAttribute('data-index'))
+    showLightBox(index = imageIndex)
+}
