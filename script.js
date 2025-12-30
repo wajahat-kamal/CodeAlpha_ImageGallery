@@ -35,10 +35,27 @@ function showLightBox(n) {
   lightBoxImg.setAttribute("src", imageLocation);
 }
 
-
 function currentImage() {
-    lightBoxContainer.style.display = 'block'
+  lightBoxContainer.style.display = "block";
 
-    let imageIndex = parseInt(this.getAttribute('data-index'))
-    showLightBox(index = imageIndex)
+  let imageIndex = parseInt(this.getAttribute("data-index"));
+  showLightBox((index = imageIndex));
 }
+
+for (let i = 0; i < galleryItem.length; i++) {
+  galleryItem[i].addEventListener("click", currentImage);
+}
+
+function sliderImage(n) {
+  showLightBox((index += n));
+}
+
+function prevImage() {
+  sliderImage(-1);
+}
+function nextImage() {
+  sliderImage(1);
+}
+
+lightBoxPrev.addEventListener("click", prevImage);
+lightBoxNext.addEventListener("click", nextImage);
