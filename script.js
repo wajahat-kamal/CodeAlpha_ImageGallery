@@ -8,28 +8,25 @@ const lightBoxImg = document.createElement("img");
 
 const lightBoxPrev = document.createElement("img");
 const lightBoxNext = document.createElement("img");
+const lightBoxClose = document.createElement("img");
 
 lightBoxContainer.classList.add("lightbox");
 lightBoxContent.classList.add("lightbox-content");
 lightBoxImg.classList.add("lightbox-content-img");
 
-
 lightBoxPrev.classList.add("lightbox-prev");
 lightBoxNext.classList.add("lightbox-next");
+lightBoxClose.classList.add("lightbox-close");
 
 lightBoxPrev.setAttribute("src", "/assets/left-icon.webp");
 lightBoxNext.setAttribute("src", "/assets/right-icon.webp");
-
-lightBoxPrev.style.width = '40px'
-lightBoxPrev.style.height = '40px'
-lightBoxNext.style.height = '40px'
-lightBoxNext.style.width = '40px'
-
+lightBoxClose.setAttribute("src", "/assets/close-icon.png");
 
 lightBoxContainer.appendChild(lightBoxContent);
 lightBoxContent.appendChild(lightBoxImg);
 lightBoxContent.appendChild(lightBoxPrev);
 lightBoxContent.appendChild(lightBoxNext);
+lightBoxContent.appendChild(lightBoxClose);
 
 document.body.appendChild(lightBoxContainer);
 

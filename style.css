@@ -17,7 +17,6 @@ body {
 
   width: 70%;
   padding: 16px;
-
 }
 
 /* ===== Gallery Item ===== */
@@ -68,12 +67,12 @@ body {
 
 /* ===== Navigation Arrows ===== */
 .lightbox-prev,
-.lightbox-next {
+.lightbox-next,
+.lightbox-close {
   position: absolute;
-  top: 61%;
   transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
@@ -81,11 +80,17 @@ body {
 }
 
 .lightbox-prev {
+  top: 61%;
   left: 13.5%;
 }
 
 .lightbox-next {
+  top: 61%;
   right: 12.5%;
+}
+.lightbox-close {
+  top: 25%;
+  right: 18%;
 }
 
 /* ===== Mobile Responsive ===== */
