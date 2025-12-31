@@ -1,15 +1,14 @@
 const galleryItem = document.querySelectorAll(".gallery-item");
 
+/* ===== Create Elements ===== */
 const lightBoxContainer = document.createElement("div");
-
 const lightBoxContent = document.createElement("div");
-
 const lightBoxImg = document.createElement("img");
-
 const lightBoxPrev = document.createElement("img");
 const lightBoxNext = document.createElement("img");
 const lightBoxClose = document.createElement("img");
 
+/* ===== Add Classes ===== */
 lightBoxContainer.classList.add("lightbox");
 lightBoxContent.classList.add("lightbox-content");
 lightBoxImg.classList.add("lightbox-content-img");
@@ -18,10 +17,12 @@ lightBoxPrev.classList.add("lightbox-prev");
 lightBoxNext.classList.add("lightbox-next");
 lightBoxClose.classList.add("lightbox-close");
 
-lightBoxPrev.setAttribute("src", "/assets/left-icon.webp");
-lightBoxNext.setAttribute("src", "/assets/right-icon.webp");
-lightBoxClose.setAttribute("src", "/assets/close-icon.png");
+/* ===== Set Sources ===== */
+lightBoxPrev.src = "/assets/left-icon.webp";
+lightBoxNext.src = "/assets/right-icon.webp";
+lightBoxClose.src = "/assets/close-icon.png";
 
+/* ===== Append Elements ===== */
 lightBoxContainer.appendChild(lightBoxContent);
 lightBoxContent.appendChild(lightBoxImg);
 lightBoxContent.appendChild(lightBoxPrev);
@@ -30,48 +31,51 @@ lightBoxContent.appendChild(lightBoxClose);
 
 document.body.appendChild(lightBoxContainer);
 
-let index = 1;
+/* ===== Logic ===== */
+let index = 0;
 
 function showLightBox(n) {
-  if (n > galleryItem.length) {
-    index = 1;
-  } else if (n < 1) {
-    index = galleryItem.length;
-  }
+  if (n >= galleryItem.length) index = 0;
+  if (n < 0) index = galleryItem.length - 1;
 
-  let imageLocation = galleryItem[index - 1].children[0].getAttribute("src");
-  lightBoxImg.setAttribute("src", imageLocation);
+  const imageLocation =
+    galleryItem[index].querySelector("img").src;
+
+  lightBoxImg.src = imageLocation;
 }
 
-function currentImage() {
-  lightBoxContainer.style.display = "block";
+galleryItem.forEach((item, i) => {
+  item.addEventListener("click", () => {
+    index = i;
+    lightBoxContainer.style.display = "block";
+    showLightBox(index);
+  });
+});
 
-  let imageIndex = parseInt(this.getAttribute("data-index"));
-  showLightBox((index = imageIndex));
+function prevImage(e) {
+  e.stopPropagation();
+  index--;
+  showLightBox(index);
 }
 
-for (let i = 0; i < galleryItem.length; i++) {
-  galleryItem[i].addEventListener("click", currentImage);
+function nextImage(e) {
+  e.stopPropagation();
+  index++;
+  showLightBox(index);
 }
-
-function sliderImage(n) {
-  showLightBox((index += n));
-}
-
-function prevImage() {
-  sliderImage(-1);
-}
-function nextImage() {
-  sliderImage(1);
-}
-
-lightBoxPrev.addEventListener("click", prevImage);
-lightBoxNext.addEventListener("click", nextImage);
 
 function closeLightBox(e) {
-  if (e.target === lightBoxContainer) {
-    lightBoxContainer.style.display = "none";
-  }
+  e.stopPropagation();
+  lightBoxContainer.style.display = "none";
 }
 
-lightBoxContainer.addEventListener("click", closeLightBox);
+/* ===== Events ===== */
+lightBoxPrev.addEventListener("click", prevImage);
+lightBoxNext.addEventListener("click", nextImage);
+lightBoxClose.addEventListener("click", closeLightBox);
+
+lightBoxContainer.addEventListener("click", (e) => {
+  if (e.target === lightBoxContainer) {
+    closeLightBox(e);
+  }
+});
