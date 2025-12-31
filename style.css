@@ -51,7 +51,7 @@ body {
 /* ===== Lightbox Content ===== */
 .lightbox-content {
   position: relative;
-  width: min(30%, 500px);
+  width: min(90%, 800px);
   height: 70vh;
   margin: 5vh auto;
 }
@@ -63,7 +63,7 @@ body {
   object-fit: cover;
   position: absolute;
   top: 23%;
-  left: 33%;
+  left: 21%;
 }
 
 /* ===== Navigation Arrows ===== */
@@ -81,11 +81,11 @@ body {
 }
 
 .lightbox-prev {
-  left: 28%;
+  left: 13.5%;
 }
 
 .lightbox-next {
-  right: 27.5%;
+  right: 12.5%;
 }
 
 /* ===== Mobile Responsive ===== */

@@ -17,8 +17,8 @@ lightBoxImg.classList.add("lightbox-content-img");
 lightBoxPrev.classList.add("lightbox-prev");
 lightBoxNext.classList.add("lightbox-next");
 
-lightBoxPrev.setAttribute("src", "/assets/chevron-left-icon.webp");
-lightBoxNext.setAttribute("src", "/assets/chevron-right-icon.webp");
+lightBoxPrev.setAttribute("src", "/assets/left-icon.webp");
+lightBoxNext.setAttribute("src", "/assets/right-icon.webp");
 
 lightBoxPrev.style.width = '40px'
 lightBoxPrev.style.height = '40px'
