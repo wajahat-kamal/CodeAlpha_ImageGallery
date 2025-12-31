@@ -1,19 +1,30 @@
-const galleryItem = document.getElementsByClassName("gallery-item");
+const galleryItem = document.querySelectorAll(".gallery-item");
 
 const lightBoxContainer = document.createElement("div");
 
 const lightBoxContent = document.createElement("div");
 
-const lightBoxImg = document.createElement("div");
+const lightBoxImg = document.createElement("img");
 
-const lightBoxPrev = document.createElement("div");
-const lightBoxNext = document.createElement("div");
+const lightBoxPrev = document.createElement("img");
+const lightBoxNext = document.createElement("img");
 
 lightBoxContainer.classList.add("lightbox");
 lightBoxContent.classList.add("lightbox-content");
+lightBoxImg.classList.add("lightbox-content-img");
 
-lightBoxPrev.classList.add("fa", "fa-angle-left", "lightbox-prev");
-lightBoxNext.classList.add("fa", "fa-angle-right", "lightbox-next");
+
+lightBoxPrev.classList.add("lightbox-prev");
+lightBoxNext.classList.add("lightbox-next");
+
+lightBoxPrev.setAttribute("src", "/assets/chevron-left-icon.webp");
+lightBoxNext.setAttribute("src", "/assets/chevron-right-icon.webp");
+
+lightBoxPrev.style.width = '40px'
+lightBoxPrev.style.height = '40px'
+lightBoxNext.style.height = '40px'
+lightBoxNext.style.width = '40px'
+
 
 lightBoxContainer.appendChild(lightBoxContent);
 lightBoxContent.appendChild(lightBoxImg);
@@ -60,8 +71,8 @@ function nextImage() {
 lightBoxPrev.addEventListener("click", prevImage);
 lightBoxNext.addEventListener("click", nextImage);
 
-function closeLightBox() {
-  if (this === event.target) {
+function closeLightBox(e) {
+  if (e.target === lightBoxContainer) {
     lightBoxContainer.style.display = "none";
   }
 }
