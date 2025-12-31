@@ -95,8 +95,15 @@ body {
 
 /* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .gallery-item {
+    height: 150px;
+  }
+
   .lightbox-content {
-    width: 95%;
+    width: 90%;
     height: 60vh;
   }
 
@@ -106,5 +113,16 @@ body {
 
   .lightbox-next {
     right: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  .hidden-img{
+    display: none;
+  }
+  .gallery-item {
+    height: 80px;
   }
 }
