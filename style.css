@@ -102,27 +102,80 @@ body {
     height: 150px;
   }
 
-  .lightbox-content {
-    width: 90%;
-    height: 60vh;
+  .lightbox-content-img {
+    top: 30%;
+    left: 16%;
+  }
+  .lightbox-close {
+    top: 31%;
+    right: 13%;
   }
 
   .lightbox-prev {
-    left: 10px;
+    top: 58%;
+    left: 8%;
   }
 
   .lightbox-next {
-    right: 10px;
+    top: 57%;
+    right: 7.5%;
   }
 }
 @media (max-width: 500px) {
   .gallery-container {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
-  .hidden-img{
+  .hidden-img {
     display: none;
   }
-  .gallery-item {
-    height: 80px;
+
+  .lightbox-content-img {
+    width: 320px;
+    height: 245px;
+    left: 7%;
+    top: 35%;
+  }
+  .lightbox-close {
+    top: 36%;
+    right: 1%;
+    width: 22px;
+    height: 22px;
+  }
+
+  .lightbox-prev {
+    top: 54.5%;
+    left: 0%;
+    width: 22px;
+    height: 22px;
+  }
+
+  .lightbox-next {
+    top: 54%;
+    right: 0%;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 330px) {
+  .lightbox-content-img {
+    width: 235px;
+    height: 180px;
+    left: 7%;
+    top: 40%;
+  }
+  .lightbox-close {
+    top: 41%;
+    right: 1%;
+  }
+
+  .lightbox-prev {
+    top: 54.5%;
+    left: 0%;
+  }
+
+  .lightbox-next {
+    top: 54%;
+    right: 0%;
   }
 }
