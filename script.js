@@ -7,12 +7,13 @@ const lightBoxImg = document.createElement("img");
 const lightBoxPrev = document.createElement("img");
 const lightBoxNext = document.createElement("img");
 const lightBoxClose = document.createElement("img");
+const lightBoxImageIndex = document.createElement("p");
 
 /* ===== Add Classes ===== */
 lightBoxContainer.classList.add("lightbox");
 lightBoxContent.classList.add("lightbox-content");
 lightBoxImg.classList.add("lightbox-content-img");
-
+lightBoxImageIndex.classList.add("lightbox-counter");
 lightBoxPrev.classList.add("lightbox-prev");
 lightBoxNext.classList.add("lightbox-next");
 lightBoxClose.classList.add("lightbox-close");
@@ -28,6 +29,7 @@ lightBoxContent.appendChild(lightBoxImg);
 lightBoxContent.appendChild(lightBoxPrev);
 lightBoxContent.appendChild(lightBoxNext);
 lightBoxContent.appendChild(lightBoxClose);
+lightBoxContent.appendChild(lightBoxImageIndex);
 
 document.body.appendChild(lightBoxContainer);
 
@@ -38,10 +40,12 @@ function showLightBox(n) {
   if (n >= galleryItem.length) index = 0;
   if (n < 0) index = galleryItem.length - 1;
 
-  const imageLocation =
-    galleryItem[index].querySelector("img").src;
+  const imageLocation = galleryItem[index].querySelector("img").src;
 
   lightBoxImg.src = imageLocation;
+
+  lightBoxImageIndex.textContent = `Image ${index+1} / ${galleryItem.length}`;
+
 }
 
 galleryItem.forEach((item, i) => {
@@ -73,6 +77,22 @@ function closeLightBox(e) {
 lightBoxPrev.addEventListener("click", prevImage);
 lightBoxNext.addEventListener("click", nextImage);
 lightBoxClose.addEventListener("click", closeLightBox);
+
+document.addEventListener("keydown", (e) => {
+  if (lightBoxContainer.style.display === "none") return;
+
+  if (e.key === "Escape") {
+    closeLightBox(e);
+  }
+
+  if (e.key === "ArrowLeft") {
+    prevImage(e);
+  }
+
+  if (e.key === "ArrowRight") {
+    nextImage(e);
+  }
+});
 
 lightBoxContainer.addEventListener("click", (e) => {
   if (e.target === lightBoxContainer) {

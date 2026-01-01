@@ -67,6 +67,20 @@ body {
   left: 21%;
 }
 
+.lightbox-counter {
+  position: absolute;
+  bottom: 0%;
+  left: 23%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
 /* ===== Navigation Arrows ===== */
 .lightbox-prev,
 .lightbox-next,
